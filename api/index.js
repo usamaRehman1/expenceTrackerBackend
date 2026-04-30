@@ -1,4 +1,5 @@
 import express from "express";
+import serverless from "serverless-http";
 import { connectDB } from "./helper/dbConnectionFunc.js";
 import { ENV } from "./constant/index.js";
 import router from "./routes/index.js";
@@ -8,12 +9,12 @@ connectDB()
 
 const app = express();
 app.use(express.json())
-app.use("/api", router)
+app.use("/", router)
 
 // const PORT = ENV.PORT || 3000;
 // app.listen(PORT, () => {
 //     console.log(`server is running on the port of ${PORT}`)
 // })
 
-module.exports = app;
-module.exports.handler = serverless(app);
+export default app;
+export const handler = serverless(app);
