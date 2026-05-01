@@ -16,4 +16,4 @@ app.use("/", router)
 //     console.log(`server is running on the port of ${PORT}`)
 // })
 
-export const handler = serverless(app);
+export default serverless(app);
