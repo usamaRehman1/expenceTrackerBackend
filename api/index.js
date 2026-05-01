@@ -1,10 +1,11 @@
 import express from "express";
 import serverless from "serverless-http";
+import dotenv from "dotenv";
 import { connectDB } from "./helper/dbConnectionFunc.js";
 import { ENV } from "./constant/index.js";
 import router from "./routes/index.js";
 
-// dotenv.config();
+dotenv.config();
 connectDB()
 
 const app = express();
