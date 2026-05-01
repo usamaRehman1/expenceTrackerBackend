@@ -6,10 +6,21 @@ import { ENV } from "./constant/index.js";
 import router from "./routes/index.js";
 
 dotenv.config();
-connectDB()
-
 const app = express();
 app.use(express.json())
+
+app.get("/", async (req, res) => {
+    await connectDB(); // connect when request comes
+    res.send("API working ✅");
+});
+
+// connectDB()
+
+app.get("/test", (req, res) => {
+  res.send("Test route working 🚀");
+});
+
+
 app.use("/", router)
 
 // const PORT = ENV.PORT || 3000;
